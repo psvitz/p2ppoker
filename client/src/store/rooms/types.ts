@@ -1,14 +1,14 @@
 import { Participant } from "../pokerSession/types";
 
-export interface Room{
+export interface Room {
   id: string
   name: string
   participants: Participant[]
 }
 
 
-export interface RoomsState{
-  rooms:Room[]
+export interface RoomsState {
+  rooms: Room[]
 }
 
 
@@ -20,9 +20,9 @@ export interface RoomsState{
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
 export const enum RoomsActions {
-    FETCH_REQUEST = '@@rooms/FETCH_REQUEST',
-    FETCH_SUCCESS = '@@rooms/FETCH_SUCCESS',
-    FETCH_ERROR = '@@rooms/FETCH_ERROR',
-    SELECT_HERO = '@@rooms/SELECT_HERO',
-    SELECTED = '@@rooms/SELECTED'
-  }
+  FETCH_REQUEST = '@@rooms/FETCH_REQUEST',
+  FETCH_SUCCESS = '@@rooms/FETCH_SUCCESS',
+  FETCH_ERROR = '@@rooms/FETCH_ERROR',
+  SELECT_HERO = '@@rooms/SELECT_HERO',
+  SELECTED = '@@rooms/SELECTED'
+}

@@ -1,11 +1,11 @@
 
-export interface PokerSessionState{
+export interface PokerSessionState {
 
 }
 
-export interface Participant{
-  id:string
-  name:string
+export interface Participant {
+  id: string
+  name: string
 }
 
 // Use `const enum`s for better autocompletion of action type names. These will
@@ -15,9 +15,9 @@ export interface Participant{
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
 export const enum PokerSessionActions {
-    FETCH_REQUEST = '@@pokerSession/FETCH_REQUEST',
-    FETCH_SUCCESS = '@@pokerSession/FETCH_SUCCESS',
-    FETCH_ERROR = '@@pokerSession/FETCH_ERROR',
-    SELECT_HERO = '@@pokerSession/SELECT_HERO',
-    SELECTED = '@@pokerSession/SELECTED'
-  }
+  FETCH_REQUEST = '@@pokerSession/FETCH_REQUEST',
+  FETCH_SUCCESS = '@@pokerSession/FETCH_SUCCESS',
+  FETCH_ERROR = '@@pokerSession/FETCH_ERROR',
+  SELECT_HERO = '@@pokerSession/SELECT_HERO',
+  SELECTED = '@@pokerSession/SELECTED'
+}

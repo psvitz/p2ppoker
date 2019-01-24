@@ -5,11 +5,11 @@ import { pokerSessionReducer } from './pokerSession/reducer';
 import { roomsReducer } from './rooms/reducer';
 
 export interface ApplicationState {
-    pokerSession: PokerSessionState
-    rooms: RoomsState
-  }
+  pokerSession: PokerSessionState
+  rooms: RoomsState
+}
 
 export const rootReducer = combineReducers<ApplicationState>({
-    pokerSession: pokerSessionReducer,
-    rooms:roomsReducer
-  })
+  pokerSession: pokerSessionReducer,
+  rooms: roomsReducer
+})

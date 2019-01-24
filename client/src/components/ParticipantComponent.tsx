@@ -3,10 +3,10 @@ import { Participant } from '../store/pokerSession/types';
 
 
 export default class ParticipantComponent extends React.Component<{}>{
-    
 
-    getColor(){
-        var colorOptions=[
+
+    getColor() {
+        var colorOptions = [
             "badge-secondary",
             "badge-primary",
             "badge-info",
@@ -22,6 +22,6 @@ export default class ParticipantComponent extends React.Component<{}>{
     }
 
     public render() {
-        return <div className={"badge badge-pill "+this.getColor()}>{this.props.children}</div>
+        return <div className={"badge badge-pill " + this.getColor()}>{this.props.children}</div>
     }
 }
