@@ -3,6 +3,11 @@ export interface PokerSessionState{
 
 }
 
+export interface Participant{
+  id:string
+  name:string
+}
+
 // Use `const enum`s for better autocompletion of action type names. These will
 // be compiled away leaving only the final value in your compiled code.
 //

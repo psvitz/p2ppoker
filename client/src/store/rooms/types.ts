@@ -1,7 +1,9 @@
+import { Participant } from "../pokerSession/types";
 
 export interface Room{
   id: string
   name: string
+  participants: Participant[]
 }
 
 
