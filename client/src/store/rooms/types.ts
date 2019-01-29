@@ -19,10 +19,9 @@ export interface RoomsState {
 // Define however naming conventions you'd like for your action types, but
 // personally, I use the `@@context/ACTION_TYPE` convention, to follow the convention
 // of Redux's `@@INIT` action.
-export const enum RoomsActions {
-  FETCH_REQUEST = '@@rooms/FETCH_REQUEST',
-  FETCH_SUCCESS = '@@rooms/FETCH_SUCCESS',
-  FETCH_ERROR = '@@rooms/FETCH_ERROR',
-  SELECT_HERO = '@@rooms/SELECT_HERO',
-  SELECTED = '@@rooms/SELECTED'
+export enum RoomsActions {
+  MAKE_ROOM = '@@rooms/MAKE_ROOM',
+  JOIN_ROOM = '@@rooms/JOIN_ROOM',
+  UPDATE_ROOM = '@@rooms/UPDATE_ROOM',
+  GET_ROOMS = '@@rooms/GET_ROOMS'
 }

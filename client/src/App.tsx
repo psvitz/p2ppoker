@@ -10,13 +10,14 @@ import PokerSessionComponent from './pokerSession/pokerSession';
 
 import logo from './logo.svg';
 import './App.css';
+import { rootReducer } from './store';
 
 class App extends Component {
   render() {
     return (
-      //<Provider store={createStore()}>\
-      <Routes />
-      //</Provider>
+      <Provider store={createStore(rootReducer)}>
+        <Routes />
+      </Provider>
     );
   }
 }

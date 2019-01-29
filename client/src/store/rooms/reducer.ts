@@ -1,23 +1,31 @@
 import { Reducer } from 'redux'
-import { RoomsState, RoomsActions } from './types';
+import { Room, RoomsState, RoomsActions } from './types';
+
 
 // Type-safe initialState!
 const initialState: RoomsState = {
-  rooms: []
-}
+  rooms: [{id:"1", name:"Test", participants:[]}]
+} 
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,
 // everything will remain type-safe.
 const reducer: Reducer<RoomsState> = (state = initialState, action) => {
   switch (action.type) {
-    case RoomsActions.FETCH_REQUEST: {
-      return { ...state, loading: true }
+    case RoomsActions.GET_ROOMS:{
+      return {...state};
     }
-    case RoomsActions.FETCH_SUCCESS: {
+    case RoomsActions.MAKE_ROOM: {
+      var newState = {...state};
+      //newStat.rooms.push({ id:"-1", name:action});
+      return { ...state }
+    }
+    case RoomsActions.JOIN_ROOM: {
       return { ...state, loading: false, data: action.payload }
     }
-    case RoomsActions.FETCH_ERROR: {
-      return { ...state, loading: false, errors: action.payload }
+    case RoomsActions.UPDATE_ROOM:{
+      let newState = {...state};
+      //newState.rooms.reduce(x=>x.i)
+      return newState;
     }
     default: {
       return state

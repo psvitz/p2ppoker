@@ -3,6 +3,7 @@ import { PokerSessionState, PokerSessionActions } from './types'
 
 // Type-safe initialState!
 const initialState: PokerSessionState = {
+  participants:[]
 }
 
 // Thanks to Redux 4's much simpler typings, we can take away a lot of typings on the reducer side,

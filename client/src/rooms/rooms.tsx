@@ -1,22 +1,45 @@
 import React from 'react'
 
+import { Dispatch, bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
+import { RouteComponentProps, Route, Switch } from 'react-router-dom'
+
+import { ApplicationState, ConnectedReduxProps } from '../store'
+
 import PokerRoomItem from '../components/PokerRoomItem';
-import { RoomsState, Room } from '../store/rooms/types';
+import { RoomsState, Room, RoomsActions } from '../store/rooms/types';
+import { ParticipantTypes } from '../store/pokerSession/types';
+import { getRooms } from '../store/rooms/actions';
+import { EmptyAction } from 'typesafe-actions/dist/types';
+import { AnyAction } from 'redux';
 
+interface PropsFromState {
+    loading: boolean
+    data: Room[]
+    errors?: string
+}
 
-export default class RoomsComponent extends React.Component<{}, RoomsState>{
-    defaultRooms: Room[] = [{ id: "1", name: "Room 1", participants: [{ id: "1", name: "John" }, { id: "2", name: "Jane" }, { id: "3", name: "Pete" }] }, { id: "2", name: "Room 2", participants: [{ id: "1", name: "John" }, { id: "2", name: "Jane" }, { id: "3", name: "Pete" }] }];
+interface PropsFromDispatch {
+    getRoomsRequest: typeof getRooms
+  }
 
-    componentWillMount() {
-        this.setState({ rooms: this.defaultRooms });
+type AllProps = PropsFromState& PropsFromDispatch& ConnectedReduxProps
+
+class RoomsComponent extends React.Component<AllProps>{
+
+    public componentDidMount(){
     }
 
     public render() {
-        var roomsList = this.state.rooms.map(function (r) {
+        const { data } = this.props;
+        var roomsList = null;
+
+        roomsList = data.map(function (r) {
             return <li className="list-group-item list-group-item-action flex-column">
                 <PokerRoomItem room={r}></PokerRoomItem>
             </li>;
         })
+        
         var background = { backgroundImage: `url('/img/bg` + (Math.floor(Math.random() * 7) + 1) + `.jpg')` };
 
         return <div>
@@ -51,3 +74,13 @@ export default class RoomsComponent extends React.Component<{}, RoomsState>{
 
     }
 }
+
+const mapStateToProps = ({ rooms }: ApplicationState) => ({
+    data:rooms.rooms
+});
+
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    getRoomsRequest: () => dispatch(getRooms())
+  })
+
+export default connect(mapStateToProps,mapDispatchToProps)(RoomsComponent)
